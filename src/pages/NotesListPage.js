@@ -19,7 +19,7 @@ const NotesListPage = () => {
         <div className='notes-list'>
             {
                 notes.map((note, index) => (
-                    <h3> {note.body} </h3>
+                    <h3 key={index}> {note.body} </h3>
                 ))
             }
 
