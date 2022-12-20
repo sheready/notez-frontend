@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import ListItem from '../components/ListItem';
 
 const NotesListPage = () => {
-
+    //add a state to handle our notes data with initial state as an empty array
     let [notes, setNotes] = useState([])
 
+    //add a use effect to pass our get notes function and pass empty array dependancy
     useEffect(() => {
         getNotes()
-    }, [])
+    },[])
 
     let getNotes = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/notes/')
+        //fetch data from desired django url endpoint and await for the response
+        let response = await fetch('/api/notes/')
+        //ensure the response is in json format
         let data = await response.json()
         console.log('DATA:',data)
+        //set the state of notes and pass data to it
         setNotes(data)
     }
   return (
     <div>
         <div className='notes-list'>
             {
+                // iterate through the notes from the api
                 notes.map((note, index) => (
-                    <h3 key={index}> {note.body} </h3>
+                    //pass the ListItem component
+                    <ListItem key={index} note={note} />
                 ))
             }
 
