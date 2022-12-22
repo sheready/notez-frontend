@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ListItem from '../components/ListItem';
 
+
 const NotesListPage = () => {
     //add a state to handle our notes data with initial state as an empty array
     let [notes, setNotes] = useState([])
