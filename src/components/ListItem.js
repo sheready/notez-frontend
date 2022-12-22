@@ -15,12 +15,7 @@ const ListItem = ({ note }) => {
 const card = (
 
   <React.Fragment>
-    <CardContent>
-      <Typography variant="h5" component="div">
-        {/* be{bull}nev{bull}o{bull}lent */}
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-      </Typography>
+    <CardContent >
       <Typography variant="body2">
         {note.body}
       </Typography>
@@ -39,7 +34,7 @@ const card = (
 
   return (
     <div>
-        <Box sx={{ minWidth: 275 }}>
+        <Box id="itemcard">
           <Card variant="outlined">{card}</Card>
         </Box>
        
