@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ListItem from '../components/ListItem';
 
 
+
 const NotesListPage = () => {
     //add a state to handle our notes data with initial state as an empty array
     let [notes, setNotes] = useState([])
 
+    
     //add a use effect to pass our get notes function and pass empty array dependancy
     useEffect(() => {
         getNotes()
@@ -22,6 +24,10 @@ const NotesListPage = () => {
     }
   return (
     <div>
+   
+        <div>
+            <p className='note-count'>{notes.length}</p>
+        </div>
         <div className='notes-list'>
             {
                 // iterate through the notes from the api
