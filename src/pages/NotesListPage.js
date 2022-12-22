@@ -18,7 +18,6 @@ const NotesListPage = () => {
         let response = await fetch('/api/notes/')
         //ensure the response is in json format
         let data = await response.json()
-        console.log('DATA:',data)
         //set the state of notes and pass data to it
         setNotes(data)
     }
