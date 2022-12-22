@@ -23,10 +23,6 @@ const NotesListPage = () => {
     }
   return (
     <div>
-   
-        <div>
-            <p className='note-count'>{notes.length}</p>
-        </div>
         <div className='notes-list'>
             {
                 // iterate through the notes from the api
