@@ -7,18 +7,19 @@ import {
 
 import Header from './components/Header';
 import NotesListPage from './pages/NotesListPage';
-
+import NotePage from './pages/NotePage';
 
 function App() {
   return (
     <Router>
       <Routes>
-          <Route path="/" element={
+          <Route path="/" exact element={
             <>
             <Header/>
             <NotesListPage/>
             </>
           }/>
+          <Route path="/note/:id" element={<NotePage/>} />
       </Routes>
 
     </Router>
