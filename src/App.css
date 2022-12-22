@@ -1,0 +1,26 @@
+#itemcard{
+    align-items: center;
+    height: 200px;
+    width: 30%;
+    margin-left: 35%;
+}
+*{
+
+    color: #F07900;
+}
+
+
+#main-topic{
+    display: inline;
+
+}
+
+#icon{
+    height: 50px;
+    width: 50px;
+    margin-left: 35%;
+    margin-top: 10px;
+}
+.notes-list{
+    margin-top: 20px;
+}
