@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
+import { CaretLeftOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 const { TextArea } = Input;
 
@@ -43,8 +43,8 @@ const NotePage = () => {
     <div>
 
       <TextArea rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
+      <CaretLeftOutlined onClick={handleSubmit} />
 
-      <button onClick={handleSubmit}>Home</button>
    
   
       
