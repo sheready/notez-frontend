@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-
-
+import { Input } from 'antd';
+const { TextArea } = Input;
 
 const NotePage = () => {
     //a usestate to handle the note state
@@ -38,14 +38,14 @@ const NotePage = () => {
       navigate('/')
     }
 
+
   return (
     <div>
-      <div>
-        <textarea onChange={(e) => setNote({...note, 'body': e.target.value})}/>
-        <h3>
-          <button onClick={handleSubmit}>Home</button>
-        </h3>
-      </div>
+
+      <TextArea rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
+
+      <button onClick={handleSubmit}>Home</button>
+   
   
       
 
