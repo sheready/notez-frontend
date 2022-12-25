@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { CaretLeftOutlined } from '@ant-design/icons';
+import { LeftOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 const { TextArea } = Input;
 
@@ -40,13 +40,12 @@ const NotePage = () => {
 
 
   return (
-    <div>
+    <div id="items">
+      <LeftOutlined className= "itemicon" onClick={handleSubmit} />
+      <TextArea className= "itemcard" placeholder={note?.body} rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
+      <br></br>
+      
 
-      <TextArea rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
-      <CaretLeftOutlined onClick={handleSubmit} />
-
-   
-  
       
 
     </div>
