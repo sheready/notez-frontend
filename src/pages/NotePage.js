@@ -1,14 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import { Link } from "react-router-dom";
-import TextareaAutosize from '@mui/base/TextareaAutosize';
+
 
 
 
@@ -32,7 +24,7 @@ const NotePage = () => {
     }
 
     let updateNote = async() => {
-      fetch(`/api/notes/${noteId}/update/`,{
+      fetch(`/api/notes/${noteId}/update`,{
         method: "PUT",
         headers: {
           'Content-Type': 'application/json'
@@ -41,45 +33,19 @@ const NotePage = () => {
       })
     }
 
-    let handleSubmit = () =>{
+    let handleSubmit = () => {
       updateNote()
       navigate('/')
     }
 
-    const card = (
-
-        <React.Fragment>
-          <CardContent>
-            <Typography variant="h5" component="div">
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary"> 
-            </Typography>
-            <Typography variant="body2">
-                {note?.body}
-            </Typography>
-            <TextareaAutosize
-              aria-label="empty textarea"
-              placeholder={note?.body}
-              style={{ width: 200 }}
-              onChange = {(e) => {setNote({...note, 'body':e.target.value})}}
-            />
-          </CardContent>
-          <CardActions>
-            <Button size="small"> 
-              <ArrowBackIosNewIcon  onClick={handleSubmit}/>
-            </Button>
-                
-            
-          </CardActions>
-        </React.Fragment>
-        );
-
   return (
     <div>
-        <Box sx={{ minWidth: 275 }} id="itemcard" className='notes-list'>
-          <Card variant="outlined">{card}</Card>
-
-        </Box>
+      <div>
+        <textarea onChange={(e) => setNote({...note, 'body': e.target.value})}/>
+        <h3>
+          <button onClick={handleSubmit}>Home</button>
+        </h3>
+      </div>
   
       
 
