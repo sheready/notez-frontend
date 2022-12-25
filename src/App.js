@@ -17,12 +17,7 @@ function App() {
       <Header/>
       <Routes>
         
-        <Route path="/" exact element={
-          <>
-         
-          <NotesListPage/>
-          </>
-        }/>
+        <Route path="/" element={<NotesListPage/>}/>
         <Route path="/note/:id" element={<NotePage/>} />
       </Routes>
 
