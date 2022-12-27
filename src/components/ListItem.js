@@ -24,7 +24,7 @@ const card = (
       <Button size="small">
       <Link to={`/note/${note.id}`}>
         {/* display notes body */}
-        <h3>See more</h3>
+        <h3>Edit Note</h3>
         
       </Link>
       </Button>
