@@ -13,17 +13,17 @@
 }
 .itemicon{
     margin-left: 5%;
-    font-size: 220%;
+    font-size: 170%;
 
 }
 #items{
     margin-top: 30px;
     border: #F07900 1px solid;
     padding: 3px;
-    width: 35%;
+    width: fit-content;
     align-items: center;
     margin-left: 35%;
-    height: 170px;
+    height: fit-content;
 }
 
 *{
@@ -45,4 +45,13 @@
 }
 .notes-list{
     margin-top: 20px;
+}
+
+#deleteButton{
+    margin-left: 150px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+#note-body{
+    margin-left: 5%;
 }
