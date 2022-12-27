@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { LeftOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Input, Button, Space } from 'antd';
 const { TextArea } = Input;
 
 const NotePage = () => {
@@ -33,6 +33,16 @@ const NotePage = () => {
       })
     }
 
+    let deleteNote = async() => {
+      fetch(`/api/notes/${noteId}/delete`, {
+        method : 'DELETE',
+        'headers': {
+          'Content-Type': 'application/json'
+        },
+      })
+      navigate('/')
+    }
+
     let handleSubmit = () => {
       updateNote()
       navigate('/')
@@ -42,12 +52,10 @@ const NotePage = () => {
   return (
     <div id="items">
       <LeftOutlined className= "itemicon" onClick={handleSubmit} />
+      <Button id="deleteButton" danger onClick={deleteNote}>Delete</Button>
+      <p id="note-body">{note?.body}</p>
       <TextArea className= "itemcard" placeholder={note?.body} rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
-      <br></br>
-      
-
-      
-
+   
     </div>
   )
 }
