@@ -38,10 +38,8 @@ const ListItem = ({ note }) => {
 const card = (
 
   <Card
+  id="card-note"
   title= {getTitle(note)}
-  style={{
-    width: 400,
-  }}
 >
   <p>{getContent(note)}</p>
   <p><span>Created at: {getCreatedTime(note)}</span></p>
@@ -56,9 +54,8 @@ const card = (
 );
 
   return (
-    <div>
+    <div id="card-div">
       <Card variant="outlined">{card}</Card>
- 
     </div>
   )
 }
