@@ -24,6 +24,7 @@ const NotesListPage = () => {
     }
   return (
     <div>
+        <AddButton />
         <div className='notes-list'>
             {
                 // iterate through the notes from the api
@@ -34,7 +35,7 @@ const NotesListPage = () => {
             }
 
         </div>
-        <AddButton />
+      
     </div>
   )
 }
