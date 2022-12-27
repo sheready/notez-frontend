@@ -9,7 +9,7 @@ const AddButton = () => {
   return (
         <Link to="/note/new">
             
-            <Button id="Addbutton"><PlusCircleOutlined /></Button>
+            <Button id="Addbutton">Add new note<PlusCircleOutlined /></Button>
 
         </Link>
   )
