@@ -1,14 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Card } from 'antd';
 
 
+let getUpdatedTime = (note) => {
+  return new Date(note.updated_at).toLocaleDateString()
+}
 
+let getCreatedTime = (note) => {
+  return new Date(note.created_at).toLocaleDateString()
+}
+
+// get title from body
 let getTitle = (note) =>{
   let title = note.body.split('\n')[0]
   if(title.length > 45){
@@ -16,36 +19,46 @@ let getTitle = (note) =>{
   }
   return title
 }
+
+// get the content and remove title from the body
+let getContent = (note) => {
+  let title = getTitle(note)
+  let content = note.body.replaceAll('\n', ' ')
+  content = content.replaceAll(title, '')
+
+  if(content.length > 45){
+    return content.slice(0,45) + '...'
+  }else{
+    return content
+  }
+}
 // pass notes as a prop
 const ListItem = ({ note }) => {
   
 const card = (
 
-  <React.Fragment>
-    <CardContent >
-      <Typography variant="body2">
-        {getTitle(note)}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">
-      <Link to={`/note/${note.id}`}>
-        {/* display notes body */}
-        <h3>Edit Note</h3>
+  <Card
+  title= {getTitle(note)}
+  style={{
+    width: 400,
+  }}
+>
+  <p>{getContent(note)}</p>
+  <p><span>Created at: {getCreatedTime(note)}</span></p>
+  <p><span>Updated at: {getUpdatedTime(note)}</span></p>
+  <Link to={`/note/${note.id}`}>{/* display notes body */}
+    
+    <h3>Edit Note</h3>
         
-      </Link>
-      </Button>
-    </CardActions>
-  </React.Fragment>
-  );
+  </Link>
+</Card>
+
+);
 
   return (
     <div>
-        <Box id="itemcard">
-          <Card variant="outlined">{card}</Card>
-        </Box>
-       
-        
+      <Card variant="outlined">{card}</Card>
+ 
     </div>
   )
 }
