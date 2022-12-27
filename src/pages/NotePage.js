@@ -18,6 +18,7 @@ const NotePage = () => {
 
     //get note function
     let getNote = async () => {
+      if(noteId === 'new') return
         let response = await fetch(`/api/notes/${noteId}`)
         let data = await response.json()
         setNote(data)
@@ -26,6 +27,16 @@ const NotePage = () => {
     let updateNote = async() => {
       fetch(`/api/notes/${noteId}/update`,{
         method: "PUT",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(note)
+      })
+    }
+
+    let createNote = async() => {
+      fetch(`/api/notes/create`,{
+        method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
@@ -44,17 +55,32 @@ const NotePage = () => {
     }
 
     let handleSubmit = () => {
-      updateNote()
+      if(noteId !== 'new' && !note.body){
+        deleteNote()
+      }else if(noteId !== 'new'){
+        updateNote()
+      }else if(noteId === 'new' && note !== null){
+        createNote()
+      }
       navigate('/')
     }
 
 
   return (
     <div id="items">
-      <LeftOutlined className= "itemicon" onClick={handleSubmit} />
-      <Button id="deleteButton" danger onClick={deleteNote}>Delete</Button>
+     
+      {noteId !== 'new' ? (
+        <>
+          <LeftOutlined className= "itemicon" onClick={handleSubmit} />
+          <Button id="deleteButton" danger onClick={handleSubmit}>Delete</Button>
+        </>
+       
+      ) : (
+        <Button onClick={handleSubmit}>Done</Button>
+      ) }
+
       <p id="note-body">{note?.body}</p>
-      <TextArea className= "itemcard" placeholder={note?.body} rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
+      <TextArea className= "itemcard" value={note?.body} rows={4} onChange={(e) => setNote({...note, 'body': e.target.value})}/>
    
     </div>
   )
