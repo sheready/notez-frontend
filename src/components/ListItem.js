@@ -9,6 +9,13 @@ import Typography from '@mui/material/Typography';
 
 
 
+let getTitle = (note) =>{
+  let title = note.body.split('\n')[0]
+  if(title.length > 45){
+    return title.slice(0,45)
+  }
+  return title
+}
 // pass notes as a prop
 const ListItem = ({ note }) => {
   
@@ -17,7 +24,7 @@ const card = (
   <React.Fragment>
     <CardContent >
       <Typography variant="body2">
-        {note.body}
+        {getTitle(note)}
       </Typography>
     </CardContent>
     <CardActions>
