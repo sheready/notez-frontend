@@ -23,8 +23,8 @@ const NotesListPage = () => {
         setNotes(data)
     }
   return (
-    <div>
-        <AddButton />
+      <>
+        <AddButton/>
         <div className='notes-list'>
             {
                 // iterate through the notes from the api
@@ -33,10 +33,11 @@ const NotesListPage = () => {
                     <ListItem key={index} note={note} />
                 ))
             }
-
         </div>
+        
       
-    </div>
+      </>
+
   )
 }
 
