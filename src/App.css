@@ -31,10 +31,12 @@
     color: #F07900;
 }
 
-
+#header{
+    height: 2%;
+}
 #main-topic{
     display: inline;
-
+    font-size: 40px;
 }
 
 #icon{
@@ -44,7 +46,13 @@
     margin-top: 10px;
 }
 .notes-list{
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    height: fit-content;
+
+ 
 }
 
 #deleteButton{
@@ -57,5 +65,16 @@
 }
 
 #Addbutton{
-    float: right;
+    margin-left: 35%;
+    margin-top: 10px;
+}
+#card-note{
+    height: fit-content;
+    width: 100%;
+}
+
+#card-div{
+    margin: 5px;
+
+
 }
