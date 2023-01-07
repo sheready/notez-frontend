@@ -72,7 +72,7 @@ const NotePage = () => {
       {noteId !== 'new' ? (
         <>
           <LeftOutlined className= "itemicon" onClick={handleSubmit} />
-          <Button id="deleteButton" danger onClick={handleSubmit}>Delete</Button>
+          <Button id="deleteButton" danger onClick={deleteNote}>Delete</Button>
         </>
        
       ) : (
